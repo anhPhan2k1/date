@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Will You Be My Valentine? 💕</title>
+    <meta name="description" content="A special Valentine's Day invitation" />
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/public/style.css" />
+  </head>
+
+  <body>
+    <!-- Floating Hearts Background -->
+    <div id="floating-hearts" class="floating-hearts-container"></div>
+
+    <!-- Confetti Container (hidden initially) -->
+    <div id="confetti-container" class="confetti-container"></div>
+
+    <!-- Main Card -->
+    <div class="main-container">
+      <!-- Question Card -->
+      <div id="question-card" class="card">
+        <!-- Sparkles -->
+        <div class="sparkle sparkle-left">✨</div>
+        <div class="sparkle sparkle-right">✨</div>
+
+        <!-- Main Heart -->
+        <div class="main-heart">❤️</div>
+
+        <!-- Title -->
+        <h1 class="title">Hey my Beautiful! 💕</h1>
+
+        <!-- Question -->
+        <p class="question">Will you be my Valentine?</p>
+        <p class="sub-question">And go on a special date with me on February 14th?</p>
+
+        <!-- Buttons Container -->
+        <div id="buttons-container" class="buttons-container">
+          <button id="yes-btn" class="btn-yes">Yes! 💖</button>
+          <button id="no-btn" class="btn-no">No</button>
+        </div>
+
+        <!-- Hint text -->
+        <p id="hint-text" class="hint-text"></p>
+      </div>
+
+      <!-- Success Card (hidden initially) -->
+      <div id="success-card" class="card success-card" style="display: none;">
+        <div class="success-heart">❤️</div>
+        <!---- h1 class="success-title">Yay! 🎉</h1> -->
+
+        <h1 class="success-title">Yay! nice <span class="emoji">🎉</span></h1>
+        <p class="success-text">I knew you'd say yes!</p>
+        <p class="success-subtext">Can't wait for our date on February 14th, <br> My love!! 💕</p> 
+        <div class="heart-row">
+          <span class="floating-heart-icon" style="animation-delay: 0s;">❤️</span>
+          <span class="floating-heart-icon" style="animation-delay: 0.2s;">❤️</span>
+          <span class="floating-heart-icon" style="animation-delay: 0.4s;">❤️</span>
+          <span class="floating-heart-icon" style="animation-delay: 0.6s;">❤️</span>
+          <span class="floating-heart-icon" style="animation-delay: 0.8s;">❤️</span>
+        </div>
+      </div>
+    </div>
+
+    <script src="/public/script.js"></script>
+  </body>
+</html>
+
