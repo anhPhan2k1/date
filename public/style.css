@@ -265,6 +265,45 @@ body {
   z-index: 30;
 }
 
+/* Floating message at old No button position (balloon: floats up 2s then disappears) */
+.no-floating-messages-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 25;
+  overflow: visible;
+}
+
+.no-floating-message {
+  position: absolute;
+  padding: 0.75rem 2rem;
+  font-size: 1.125rem;
+  font-weight: 500;
+  font-family: "Quicksand", sans-serif;
+  border: none;
+  border-radius: 50px;
+  /* Same color as No button */
+  background: var(--muted);
+  color: var(--muted-foreground);
+  white-space: nowrap;
+  animation: float-balloon 2s ease-out forwards;
+}
+
+@keyframes float-balloon {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  70% {
+    transform: translateY(-40px);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(-60px);
+    opacity: 0;
+  }
+}
+
 /* Hint Text */
 .hint-text {
   margin-top: 1.5rem;

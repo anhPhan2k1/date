@@ -6,6 +6,7 @@ const buttonsContainer = document.getElementById("buttons-container");
 const hintText = document.getElementById("hint-text");
 const floatingHeartsContainer = document.getElementById("floating-hearts");
 const confettiContainer = document.getElementById("confetti-container");
+const noFloatingMessagesContainer = document.getElementById("no-floating-messages");
 
 // State
 let noClickCount = 0;
@@ -61,12 +62,38 @@ function createConfetti() {
   }
 }
 
+// Create floating message at old position (balloon style: floats up for 2s then disappears)
+function createFloatingNoMessage(messageText, leftPx, topPx) {
+  if (!noFloatingMessagesContainer) return;
+  const el = document.createElement("div");
+  el.className = "no-floating-message";
+  el.textContent = messageText;
+  el.style.left = `${leftPx}px`;
+  el.style.top = `${topPx}px`;
+  noFloatingMessagesContainer.appendChild(el);
+  // Remove after 2 seconds (animation ends)
+  setTimeout(() => {
+    el.remove();
+  }, 2000);
+}
+
 // Move the No button
 function moveNoButton() {
   // Use the entire card as the boundary for more freedom
   const cardRect = questionCard.getBoundingClientRect();
   const containerRect = buttonsContainer.getBoundingClientRect();
   const btnRect = noBtn.getBoundingClientRect();
+
+  // Old position relative to buttons-container (for floating message)
+  const oldLeft = btnRect.left - containerRect.left;
+  const oldTop = btnRect.top - containerRect.top;
+
+  // Get current message and show it at OLD position (balloon floats up, then disappears)
+  const messageToShow = noMessages[noClickCount];
+  createFloatingNoMessage(messageToShow, oldLeft, oldTop);
+
+  // Cycle to next message for next time (comment: message no longer on button)
+  noClickCount = (noClickCount + 1) % noMessages.length;
 
   // Calculate the offset of buttons-container within the card
   const containerOffsetX = containerRect.left - cardRect.left;
@@ -88,9 +115,8 @@ function moveNoButton() {
   noBtn.style.left = `${newX - containerOffsetX}px`;
   noBtn.style.top = `${newY - containerOffsetY}px`;
 
-  // Update message (cycle through messages continuously)
-  noClickCount = (noClickCount + 1) % noMessages.length;
-  noBtn.textContent = noMessages[noClickCount];
+  // No button text stays "No" (old: noBtn.textContent = noMessages[noClickCount];)
+  noBtn.textContent = "No";
 
   // Make Yes button bigger (increase font size and padding instead of transform,
   // so it doesn't conflict with existing CSS animations on the button)
