@@ -81,14 +81,25 @@ body {
   width: 12px;
   height: 12px;
   border-radius: 2px;
-  animation: confetti-fall 3s linear forwards;
+
+  animation: confetti-fall 6s ease-in-out infinite;
+  animation-delay: calc(-8s * var(0.25));
 }
 
 @keyframes confetti-fall {
+  /* Start */
   0% {
     transform: translateY(0) rotate(0deg);
     opacity: 1;
   }
+
+  /* End of falling (2s of 8s = 25%) */
+  25% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+
+  /* Pause state (do nothing for remaining 6s) */
   100% {
     transform: translateY(100vh) rotate(720deg);
     opacity: 0;

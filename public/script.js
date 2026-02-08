@@ -14,7 +14,7 @@ let yesButtonScale = 1;
 
 // No button messages
 const noMessages = [
-  "No",
+  //"No",
   "Are you sure?",
   "Really sure?",
   "Think again!",
