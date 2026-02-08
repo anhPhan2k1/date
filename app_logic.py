@@ -12,10 +12,11 @@ class ValentineAppLogic:
     def __init__(self):
         self.no_click_count = 0
         self.yes_button_scale = 1.0
+        self.no_button_scale = 1.0
         
         # No button messages
         self.no_messages = [
-            "No",
+            #"No",
             "Are you sure?",
             "Really sure?",
             "Think again!",
@@ -46,8 +47,13 @@ class ValentineAppLogic:
     
     def increment_yes_button_scale(self) -> float:
         """Increment the Yes button scale and return the new value."""
-        self.yes_button_scale = min(self.yes_button_scale + 0.15, 2.0)
+        self.yes_button_scale = max(self.yes_button_scale + 0.15, 2.0)
         return self.yes_button_scale
+
+    def decrement_no_button_scale(self) -> float:
+        """Decrement the No button scale and return the new value."""
+        self.no_button_scale = min(self.no_button_scale - 0.15, 0.05)
+        return self.no_button_scale
     
     def generate_floating_heart_config(self) -> List[dict]:
         """Generate configuration for floating hearts."""

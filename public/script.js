@@ -11,6 +11,7 @@ const noFloatingMessagesContainer = document.getElementById("no-floating-message
 // State
 let noClickCount = 0;
 let yesButtonScale = 1;
+let noButtonScale = 1;
 
 // No button messages
 const noMessages = [
@@ -23,7 +24,7 @@ const noMessages = [
   "Nope, try again!",
   "I'm not giving up!",
   "Come on! 💕",
-  "Please? 🥺",
+  "Please, 😘",
 ];
 
 // Create floating hearts background
@@ -116,17 +117,27 @@ function moveNoButton() {
   noBtn.style.top = `${newY - containerOffsetY}px`;
 
   // No button text stays "No" (old: noBtn.textContent = noMessages[noClickCount];)
-  noBtn.textContent = "No";
+  noBtn.textContent = "No 🥺";
 
   // Make Yes button bigger (increase font size and padding instead of transform,
   // so it doesn't conflict with existing CSS animations on the button)
-  yesButtonScale = Math.min(yesButtonScale + 0.15, 2);
+  yesButtonScale = Math.min(yesButtonScale + 0.15, 3);
   const baseFontSizeRem = 1.25; // matches .btn-yes font-size in CSS
   const basePaddingYRem = 1; // matches .btn-yes padding in CSS (vertical)
   const basePaddingXRem = 3; // matches .btn-yes padding in CSS (horizontal)
   yesBtn.style.fontSize = `${baseFontSizeRem * yesButtonScale}rem`;
   yesBtn.style.padding = `${basePaddingYRem * yesButtonScale}rem ${
     basePaddingXRem * yesButtonScale
+  }rem`;
+
+  //make no button smaller
+  noButtonScale = Math.max(noButtonScale - 0.05, 0.5);
+  // const baseFontSizeRem = 1.25; // matches .btn-yes font-size in CSS
+  // const basePaddingYRem = 1; // matches .btn-yes padding in CSS (vertical)
+  // const basePaddingXRem = 3; // matches .btn-yes padding in CSS (horizontal)
+  noBtn.style.fontSize = `${baseFontSizeRem * noButtonScale}rem`;
+  noBtn.style.padding = `${basePaddingYRem * noButtonScale}rem ${
+    basePaddingXRem * noButtonScale
   }rem`;
 
   // Show hint after first escape

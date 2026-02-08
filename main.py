@@ -80,6 +80,11 @@ async def get_yes_scale() -> Dict[str, float]:
     scale = app_logic.increment_yes_button_scale()
     return {"scale": scale}
 
+@app.get("/api/no-scale")
+async def get_no_scale() -> Dict[str, float]:
+    """Decrement the No button scale and return the new value."""
+    scale = app_logic.decrement_no_button_scale()
+    return {"scale": scale}
 
 @app.post("/api/reset")
 async def reset_state():
