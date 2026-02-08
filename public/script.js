@@ -121,7 +121,7 @@ function moveNoButton() {
 
   // Make Yes button bigger (increase font size and padding instead of transform,
   // so it doesn't conflict with existing CSS animations on the button)
-  yesButtonScale = Math.min(yesButtonScale + 0.15, 3);
+  yesButtonScale = Math.min(yesButtonScale + 0.15, 2.5);
   const baseFontSizeRem = 1.25; // matches .btn-yes font-size in CSS
   const basePaddingYRem = 1; // matches .btn-yes padding in CSS (vertical)
   const basePaddingXRem = 3; // matches .btn-yes padding in CSS (horizontal)
@@ -131,7 +131,7 @@ function moveNoButton() {
   }rem`;
 
   //make no button smaller
-  noButtonScale = Math.max(noButtonScale - 0.05, 0.5);
+  noButtonScale = Math.max(noButtonScale - 0.05, 0.55);
   // const baseFontSizeRem = 1.25; // matches .btn-yes font-size in CSS
   // const basePaddingYRem = 1; // matches .btn-yes padding in CSS (vertical)
   // const basePaddingXRem = 3; // matches .btn-yes padding in CSS (horizontal)
