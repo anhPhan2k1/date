@@ -259,7 +259,10 @@ body {
   font-size: 1.125rem;
   font-weight: 500;
   font-family: "Quicksand", sans-serif;
+  
   border: none;
+  box-shadow: 0 0 0 2px var(--muted-foreground);
+
   border-radius: 50px;
   cursor: pointer;
   background: var(--muted);
@@ -268,7 +271,8 @@ body {
 }
 
 .btn-no:hover {
-  background: var(--love-pink);
+  /*background: var(--love-pink);*/
+  box-shadow: 0 0 0 3px var(--primary);
 }
 
 .btn-no.escaping {
